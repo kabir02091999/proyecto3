@@ -1,0 +1,47 @@
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+
+    height: 100px;
+    width: 100%;
+    background-color: rgb(22, 26, 7);
+    padding-top: 35px;   
+
+}
+
+
+.inicio{
+
+    margin-left: 30px;
+    height: 30px;
+    width: 60px;
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    background-color: rgb(61, 88, 177); 
+
+}
+ 
+.container_tabla{
+
+    padding: auto;
+
+}
+
+h1{
+    
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 70px; 
+
+}
+
+table{
+
+    margin: auto;
+    width: 90%;
+
+}
