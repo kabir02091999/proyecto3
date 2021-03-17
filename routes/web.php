@@ -33,12 +33,11 @@ Route::post('/subir_internet', [cambiosController::class,'nuevo_telefonia'])->na
 
 Route::post('/subir_interne', [cambiosController::class,'nuevo_internet'])->name('nuevo_internet');
 
-
 Route::post('/subir_paquete', [cambiosController::class,'nuevo_paquete'])->name('nuevo.paquetes');
-
 
 Route::post('/nuevo_usuario}', [cambiosController::class,'nuevo_usuario'])->name('nuevo.usuario');
 
+Route::get('/cambio', [cambiosController::class,'cambio'])->name('cambiodeusuario');
 
 Route::get('logi/administrador', [cambiosController::class,'administrador'])->name('administrador');
 

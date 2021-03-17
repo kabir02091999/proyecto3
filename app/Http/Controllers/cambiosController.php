@@ -66,8 +66,17 @@ class cambiosController extends Controller
                 $cambio=DB::table('cambioplan')->select('id', 'nombre', 'apellido', 'plan')->get();
                 return view('administrador', compact('cable', 'internet', 'telefonia', 'paquetes', 'usuarios','cambio'));
             } else if ($_POST['nombre'] == $item->nombre && $_POST['apellido'] == $item->apellido && $_POST['id'] == $item->id) {
+                $id=$item->id;
+                $nombre=$item->nombre;
+                $apellido = $item->apellido;
+                $cable = $item->cable;
+                $internet = $item->internet;
+                $telefonia = $item->telefonia;
+                $paquetes = $item->paquetes;
+                $precio = $item->precio;
 
-                return view('usuario');
+                
+                return view('usuario',compact('id','nombre','apellido','cable','internet','telefonia','paquetes','precio'));
             }
         }
         return "no exite";
@@ -76,19 +85,22 @@ class cambiosController extends Controller
     public function crear_telecable(Request $request)
     {
 
-
-
         $nombre = $request->input('nombre');
         $canales = $request->input('canales');
         $precio = $request->input('precio');
-
 
         Canal::create([
             'nombre' => $nombre,
             'canales' => $canales,
             'precio' => $precio,
         ]);
-        return "hola";
+        $cable = DB::table('cable')->select('id', 'nombre', 'canales', 'precio')->get();
+        $internet = DB::table('internet')->select('id', 'nombre', 'cantidad', 'precio')->get();
+        $telefonia = DB::table('telefonia')->select('id', 'nombre', 'cantidad', 'precio')->get();
+        $paquetes = DB::table('paquetes')->select('id', 'nombre', 'paquete', 'precio')->get();
+        $usuarios = DB::table('usuarios')->select('id', 'nombre', 'apellido', 'cable', 'internet', 'telefonia', 'paquetes', 'precio')->get();
+        $cambio=DB::table('cambioplan')->select('id', 'nombre', 'apellido', 'plan')->get();
+        return view('administrador', compact('cable', 'internet', 'telefonia', 'paquetes', 'usuarios','cambio'));
     }
 
     public function nuevo_telefonia(Request $request){
@@ -103,7 +115,13 @@ class cambiosController extends Controller
             'precio' => $precio,
         ]);
 
-        return "bien";
+        $cable = DB::table('cable')->select('id', 'nombre', 'canales', 'precio')->get();
+                $internet = DB::table('internet')->select('id', 'nombre', 'cantidad', 'precio')->get();
+                $telefonia = DB::table('telefonia')->select('id', 'nombre', 'cantidad', 'precio')->get();
+                $paquetes = DB::table('paquetes')->select('id', 'nombre', 'paquete', 'precio')->get();
+                $usuarios = DB::table('usuarios')->select('id', 'nombre', 'apellido', 'cable', 'internet', 'telefonia', 'paquetes', 'precio')->get();
+                $cambio=DB::table('cambioplan')->select('id', 'nombre', 'apellido', 'plan')->get();
+                return view('administrador', compact('cable', 'internet', 'telefonia', 'paquetes', 'usuarios','cambio'));
 
     }
 
@@ -120,7 +138,13 @@ class cambiosController extends Controller
             'precio' => $precio,
         ]);
 
-        return "internet";
+        $cable = DB::table('cable')->select('id', 'nombre', 'canales', 'precio')->get();
+                $internet = DB::table('internet')->select('id', 'nombre', 'cantidad', 'precio')->get();
+                $telefonia = DB::table('telefonia')->select('id', 'nombre', 'cantidad', 'precio')->get();
+                $paquetes = DB::table('paquetes')->select('id', 'nombre', 'paquete', 'precio')->get();
+                $usuarios = DB::table('usuarios')->select('id', 'nombre', 'apellido', 'cable', 'internet', 'telefonia', 'paquetes', 'precio')->get();
+                $cambio=DB::table('cambioplan')->select('id', 'nombre', 'apellido', 'plan')->get();
+                return view('administrador', compact('cable', 'internet', 'telefonia', 'paquetes', 'usuarios','cambio'));
 
     }
 
@@ -136,7 +160,13 @@ class cambiosController extends Controller
             'precio' => $precio,
         ]);
 
-        return "paquete";
+        $cable = DB::table('cable')->select('id', 'nombre', 'canales', 'precio')->get();
+                $internet = DB::table('internet')->select('id', 'nombre', 'cantidad', 'precio')->get();
+                $telefonia = DB::table('telefonia')->select('id', 'nombre', 'cantidad', 'precio')->get();
+                $paquetes = DB::table('paquetes')->select('id', 'nombre', 'paquete', 'precio')->get();
+                $usuarios = DB::table('usuarios')->select('id', 'nombre', 'apellido', 'cable', 'internet', 'telefonia', 'paquetes', 'precio')->get();
+                $cambio=DB::table('cambioplan')->select('id', 'nombre', 'apellido', 'plan')->get();
+                return view('administrador', compact('cable', 'internet', 'telefonia', 'paquetes', 'usuarios','cambio'));
 
     }
 
@@ -179,6 +209,20 @@ class cambiosController extends Controller
             'precio' => $precio,
         ]);
 
-        return "jajajaja administrador";
+        $cable = DB::table('cable')->select('id', 'nombre', 'canales', 'precio')->get();
+                $internet = DB::table('internet')->select('id', 'nombre', 'cantidad', 'precio')->get();
+                $telefonia = DB::table('telefonia')->select('id', 'nombre', 'cantidad', 'precio')->get();
+                $paquetes = DB::table('paquetes')->select('id', 'nombre', 'paquete', 'precio')->get();
+                $usuarios = DB::table('usuarios')->select('id', 'nombre', 'apellido', 'cable', 'internet', 'telefonia', 'paquetes', 'precio')->get();
+                $cambio=DB::table('cambioplan')->select('id', 'nombre', 'apellido', 'plan')->get();
+                return view('administrador', compact('cable', 'internet', 'telefonia', 'paquetes', 'usuarios','cambio'));
     }
+
+    public function cambio(){
+
+
+        return "cambio";
+
+    }
+
 }
